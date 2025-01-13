@@ -4,16 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todoer</title>
+    <script src="https://kit.fontawesome.com/5c122f6877.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class = "content">
-      <aside>a</aside>
+      <aside>
+        <div class = "side-content">
+          <div class = "aside-title">
+            <h2>Todoer</h2>
+          </div>
+          <button id = "add-task">
+            <i class="fa-solid fa-plus"></i>
+            Add Task
+          </button>
+          <div class = "project-bar">
+              <p>Projects List</p>
+              <i class="fa-solid fa-plus" id = "add-project"></i>
+          </div>
+          <div class = "project-item">
+            <div class = "project-item-name" id = "project-item-name">
+                General
+            </div>
+            <i class="fa-solid fa-trash" id = "project-remove"></i>
+          </div>
+        </div>
+      </aside>
+
       <div class = "column">
+
         <header>
           <h1 class = "title" id = "title">Title</h1>
           <p class = "counter" id = "counter"># Tasks to complete</p>
         </header>
+
         <main>a</main>
+
       </div>
     </div>
   </body>
