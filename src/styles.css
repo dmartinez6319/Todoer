@@ -111,7 +111,7 @@ aside {
 
 header {
     background-color: var(--color-primary);
-
+    padding: 1rem;
 }
 
 main {
