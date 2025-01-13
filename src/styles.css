@@ -167,3 +167,40 @@ main {
 #low-importance{
     color: green;
 }
+
+dialog {
+    padding: 2rem;
+    border-radius: 6px;
+    top: -20%;
+    margin: auto;
+    width: 180px;
+    min-height: 220px;
+}
+
+.dialog-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+#close-edit {
+    cursor: pointer;
+}
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.527);
+}
+
+.input-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+}
+
+#edit-submit {
+    border: unset;
+    background-color: var(--color-primary);
+    color: white;
+    margin-top: .5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
