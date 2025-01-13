@@ -89,7 +89,7 @@ aside {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 1rem;
+    padding: .5rem;
     transition: background-color .2s;
 }
 
@@ -117,4 +117,53 @@ header {
 main {
     flex-grow: 3;
     background-color: var(--color-background);
+}
+
+.tasks-container {
+    display: flex;
+    margin: 2rem;
+    gap: 2rem;
+}
+
+.task-column {
+
+}
+
+.task-item {
+    display: flex;
+    background-color: var(--color-secondary);
+    padding: 1rem;
+    border-radius: .2rem;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.task-item:hover {
+    outline: 1px solid white;
+
+}
+
+.task-first-line{
+    display: flex;
+    justify-content: space-between;
+}
+
+#task-status {
+    border-radius: 1rem;
+    background-color: red;
+}
+
+.task-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#high-importance{
+    color: red;
+}
+#med-importance{
+    color: yellow;
+}
+#low-importance{
+    color: green;
 }
