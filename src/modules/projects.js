@@ -13,7 +13,12 @@ const ProjectManager = () => {
 
     const defaultProject = () => {
         selectedProject = projects[0];
-        renderManager.renderPage();
+        renderManager.renderPage(selectedProject);
+    }
+
+    const setSelectedProject = (project) => {
+        selectedProject = project;
+        renderManager.renderPage(selectedProject);
     }
 
     const addProject = (data) => {
@@ -24,7 +29,7 @@ const ProjectManager = () => {
         }
         projects.push(newProject);
         let index = projects.indexOf(newProject);
-        selectedProject = projects[index]
+        setSelectedProject(projects[index]);
 
         renderManager.updateProjects(projects);
 
@@ -41,18 +46,24 @@ const ProjectManager = () => {
         if (projects.length > 0) {
             defaultProject()
         } else {
+            selectedProject = false;
             alert("Create a Project to add Todos!")
         }
     }
 
     const getSelectedProject = () => selectedProject;
+    const getProjectList = () => projects;
 
     return {
         addProject,
         removeProject,
-        getSelectedProject
+        getSelectedProject,
+        getProjectList,
+        setSelectedProject
     };
 
 };
+
+
 
 export default ProjectManager;

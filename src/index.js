@@ -15,17 +15,27 @@ const ADD_PROJECT = document.querySelector("#add-project")
 const DIALOG_PROJECT = document.querySelector("#dialog-project-add")
 const DIALOG_TASK = document.querySelector("#dialog-task-add")
 
-const PROJECT_ADD_FORM = document.querySelector
-
 ADD_TASK.addEventListener("click",() => {
-    DIALOG_TASK.showModal();
+    let selectedProject = projectManager.getSelectedProject();
+    if (selectedProject) {
+        DIALOG_TASK.showModal();
+    } else {
+        alert("Select a project!")
+    }
 });
 ADD_PROJECT.addEventListener("click",() => {
     DIALOG_PROJECT.showModal();
 });
 
+renderManager.updateProjects(projectManager.getProjectList());
+renderManager.renderPage(projectManager.getSelectedProject());
+
 export const initializeDeleteButton = (project) => {
     projectManager.removeProject(project);
+}
+
+export const initializeProjectSelection = (project) => {
+    projectManager.setSelectedProject(project);
 }
 
 // Initialize Modals

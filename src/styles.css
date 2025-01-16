@@ -161,13 +161,13 @@ main {
     justify-content: space-between;
 }
 
-#high-importance{
+#high{
     color: red;
 }
-#med-importance{
+#medium{
     color: yellow;
 }
-#low-importance{
+#low{
     color: green;
 }
 
