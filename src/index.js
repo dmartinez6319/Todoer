@@ -1,10 +1,12 @@
 import  "./styles.css";
+import RenderManager from "./modules/display";
 import ProjectManager from "./modules/projects";
 import TodoManager from "./modules/todos";
 
 // Instantiate Objects
 const projectManager = ProjectManager();
 const todoManager = TodoManager();
+const renderManager = RenderManager();
 
 // Initalize Prompts
 const ADD_TASK = document.querySelector("#add-task")
@@ -21,6 +23,10 @@ ADD_TASK.addEventListener("click",() => {
 ADD_PROJECT.addEventListener("click",() => {
     DIALOG_PROJECT.showModal();
 });
+
+export const initializeDeleteButton = (project) => {
+    projectManager.removeProject(project);
+}
 
 // Initialize Modals
 
