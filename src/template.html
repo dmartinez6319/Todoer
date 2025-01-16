@@ -18,17 +18,21 @@
             <i class="fa-solid fa-plus"></i>
             Add Task
           </button>
+
           <div class = "project-bar">
               <p>Projects List</p>
               <i class="fa-solid fa-plus" id = "add-project"></i>
           </div>
 
-          <div class = "project-item">
-            <div class = "project-item-name" id = "project-item-name">
-                General
+          <div class = "project-holder" id = "project-holder">
+            <div class = "project-item">
+              <div class = "project-item-name" id = "project-item-name">
+                  General
+              </div>
+              <i class="fa-solid fa-trash" id = "project-remove"></i>
             </div>
-            <i class="fa-solid fa-trash" id = "project-remove"></i>
           </div>
+
 
         </div>
       </aside>
@@ -45,6 +49,7 @@
             <div class = "task-item" id = "task-item">
               <div class = "task-column">
                 <input type="checkbox" id = "task-status">
+                <i class="fa-solid fa-trash" id = "remove-task"></i>
               </div>
 
               <div class= "task-column2">
@@ -66,12 +71,101 @@
              </div>
             </div>
 
-            
           </div>
         </main>
 
       </div>
     </div>
+
+    <dialog id = "dialog-task-edit">
+      <div class = "dialog-top">
+        <h3>Edit Task</h3>
+        <i class="fa-solid fa-x" id = "close-edit"></i>
+      </div>
+
+      <form class = "input-dialog" id = "input-dialog">
+        <label for = "edit-title">Title</label>
+        <input name="title" type="text" id = "edit-title" maxlength="16">
+        <label for = "edit-info">Info</label>
+        <textarea name="info" id = "edit-info" maxlength="46"></textarea>
+        <label for = "edit-select">Priority</label>
+        <select name="priority" id = "edit-select">
+          <option value = "low">Low</option>
+          <option value = "medium">Medium</option>
+          <option value = "high">High</option>
+        </select> 
+        <label for = "edit-cal">Date</label>
+        <input name="date" type="date" id = "edit-cal">
+      </form>
+
+      <button  form= "input-dialog" id = "edit-submit">Submit</button>
+
+    </dialog>
+    
+    <dialog id = "dialog-task-add">
+      <div class = "dialog-top">
+        <h3>Add Task</h3>
+        <i class="fa-solid fa-x" id = "close-edit"></i>
+      </div>
+
+      <form class = "input-dialog" id = "input-dialog">
+        <label for = "edit-title">Title</label>
+        <input required name="title" type="text" id = "edit-title" maxlength="16">
+        <label for = "edit-info">Info</label>
+        <textarea name="info" id = "edit-info" maxlength="46"></textarea>
+        <label for = "edit-select">Priority</label>
+        <select required name="priority" id = "edit-select">
+          <option value = "low">Low</option>
+          <option value = "medium">Medium</option>
+          <option value = "high">High</option>
+        </select> 
+        <label for = "edit-cal">Date</label>
+        <input required name="date" type="date" id = "edit-cal">
+      </form>
+
+      <button form="input-dialog" id = "edit-submit">Submit</button>
+
+    </dialog>
+
+    <dialog id = "dialog-project-add">
+      <div class = "dialog-top">
+        <h3>Add Project</h3>
+        <i class="fa-solid fa-x" id = "close-edit"></i>
+      </div>
+
+      <form class = "input-dialog" id = "input-dialog">
+        <label for = "edit-title">Title</label>
+        <input required name="title" type="text" id = "edit-title" maxlength="16">
+      </form>
+
+      <button form="input-dialog" id = "edit-submit">Submit</button>
+
+    </dialog>
+
+    <!-- <dialog id = "add-project">
+      <div class = "dialog-top">
+        <h3>Edit Task</h3>
+        <i class="fa-solid fa-x" id = "close-edit"></i>
+      </div>
+
+      <form class = "input-dialog" id = "input-dialog">
+        <label for = "edit-title">Title</label>
+        <input type="text" id = "edit-title" maxlength="16">
+        <label for = "edit-info">Info</label>
+        <textarea id = "edit-info" maxlength="46"></textarea>
+        <label for = "edit-select">Priority</label>
+        <select id = "edit-select">
+          <option value = "low">Low</option>
+          <option value = "medium">Medium</option>
+          <option value = "high">High</option>
+        </select> 
+        <label for = "edit-cal">Date</label>
+        <input type="date" id = "edit-cal">
+      </form>
+
+      <button form="input-dialog" id = "edit-submit">Submit</button>
+
+    </dialog>
     <dialog id = "edit-task">
       <div class = "dialog-top">
         <h3>Edit Task</h3>
@@ -92,10 +186,10 @@
         <label for = "edit-cal">Date</label>
         <input type="date" id = "edit-cal">
       </form>
-      
+
       <button form="input-dialog" id = "edit-submit">Submit</button>
 
-    </dialog>
+    </dialog> -->
   </body>
 </html>
 

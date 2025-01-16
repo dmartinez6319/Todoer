@@ -99,11 +99,11 @@ aside {
 
 }
 
-#project-remove {
+#project-remove, #remove-task {
     padding: .2rem;
 }
 
-#project-remove:hover {
+#project-remove:hover, #remove-task:hover {
     box-shadow: 0 1px 0 #ffffff;
 
 }
@@ -126,7 +126,10 @@ main {
 }
 
 .task-column {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .task-item {
@@ -197,6 +200,7 @@ dialog::backdrop{
 }
 
 #edit-submit {
+    cursor: pointer;
     border: unset;
     background-color: var(--color-primary);
     color: white;
