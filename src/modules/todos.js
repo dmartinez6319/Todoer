@@ -6,9 +6,9 @@ const renderManager = RenderManager();
 
 const TodoManager = () => {
 
-    const addTodo = (formData,name, info, priority, date) => {
+    const addTodo = (formData,selectedProject) => {
 
-        let selectedProject = projectManager.getSelectedProject();
+        // let selectedProject = projectManager.getSelectedProject();
         console.log(selectedProject)
         console.log(formData)
         selectedProject.projectTodos.push({

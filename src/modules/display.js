@@ -16,6 +16,7 @@ const RenderManager = () => {
     const renderPage = (selectedProject) => {
         HEADER_TITLE.innerHTML = selectedProject.projectName;
         HEADER_COUNTER.innerHTML = selectedProject.projectTodos.length;
+        console.log("==================")
         console.log(selectedProject)
         TODO_HOLDER.replaceChildren();
         for (let todo of selectedProject.projectTodos) {
@@ -41,10 +42,15 @@ const RenderManager = () => {
 
             TASK_REMOVE.addEventListener("click",(event)=>{
                 event.stopPropagation();
-                let index = selectedProject.projectTodos.indexOf(todo)
-                selectedProject.projectTodos.slice(index,1);
 
-                renderPage()
+                let index = selectedProject.projectTodos.indexOf(todo)
+                console.log(index)
+
+                selectedProject.projectTodos.splice(index,1);
+
+                console.log(selectedProject)
+                
+                renderPage(selectedProject)
             })
 
             TODO_HOLDER.appendChild(TODO_CARD);

@@ -123,6 +123,7 @@ main {
     display: flex;
     margin: 2rem;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .task-column {
@@ -132,13 +133,20 @@ main {
     align-items: center;
 }
 
+.task-column2 {
+    min-width: 87%;
+}
+
 .task-item {
     display: flex;
     background-color: var(--color-secondary);
+    min-width: 200px;
+    min-height: 75px;
     padding: 1rem;
     border-radius: .2rem;
     gap: 1rem;
     cursor: pointer;
+
 }
 
 .task-item:hover {

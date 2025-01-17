@@ -27,6 +27,7 @@ ADD_PROJECT.addEventListener("click",() => {
     DIALOG_PROJECT.showModal();
 });
 
+
 renderManager.updateProjects(projectManager.getProjectList());
 renderManager.renderPage(projectManager.getSelectedProject());
 
@@ -47,7 +48,7 @@ const Dialogs = {
         todoManager.editTodo(formData);
     },
     "dialog-task-add": (formData) => {
-        todoManager.addTodo(formData)
+        todoManager.addTodo(formData,projectManager.getSelectedProject())
     },
     "dialog-project-add": (formData) => {
         projectManager.addProject(formData)
@@ -94,6 +95,5 @@ document.querySelectorAll("dialog").forEach((dialog) => {
     });
 
 })
-
 
 
