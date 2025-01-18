@@ -1,5 +1,8 @@
 // Responsible for handling and creating DOM elements
 import {initializeDeleteButton, initializeProjectSelection} from "../index";
+import PriorityManager from "./priority";
+
+const priorityManager = PriorityManager();
 
 const MODAL = document.querySelector("#edit-task")
 const PROJECT_TEMPLATE = document.querySelector(".project-item").cloneNode(true);
@@ -17,8 +20,10 @@ const RenderManager = () => {
         HEADER_TITLE.innerHTML = selectedProject.projectName;
         HEADER_COUNTER.innerHTML = selectedProject.projectTodos.length;
         console.log("==================")
-        console.log(selectedProject)
         TODO_HOLDER.replaceChildren();
+
+        priorityManager.sortOrder(selectedProject);
+
         for (let todo of selectedProject.projectTodos) {
             const TODO_CARD = TODO_TEMPLATE.cloneNode(true);
             const TASK_NAME = TODO_CARD.querySelector("#task-name");
@@ -44,11 +49,9 @@ const RenderManager = () => {
                 event.stopPropagation();
 
                 let index = selectedProject.projectTodos.indexOf(todo)
-                console.log(index)
 
                 selectedProject.projectTodos.splice(index,1);
 
-                console.log(selectedProject)
                 
                 renderPage(selectedProject)
             })

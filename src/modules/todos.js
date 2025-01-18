@@ -1,6 +1,7 @@
 // Responsible for creating, editing, and deleting todos
 import ProjectManager from "./projects";
 import RenderManager from "./display";
+
 const projectManager = ProjectManager();
 const renderManager = RenderManager();
 
@@ -9,8 +10,7 @@ const TodoManager = () => {
     const addTodo = (formData,selectedProject) => {
 
         // let selectedProject = projectManager.getSelectedProject();
-        console.log(selectedProject)
-        console.log(formData)
+
         selectedProject.projectTodos.push({
             projectName: selectedProject.projectName,
             todoName: formData.get("title"),

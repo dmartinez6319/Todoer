@@ -164,6 +164,10 @@ main {
     background-color: red;
 }
 
+#task-info {
+    overflow-wrap: break-word;
+}
+
 .task-title {
     display: flex;
     justify-content: space-between;

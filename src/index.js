@@ -62,7 +62,6 @@ document.querySelectorAll("dialog").forEach((dialog) => {
     const DIALOG_ID = dialog.id
 
     EXIT_BUTTON.addEventListener("click",() => {
-        console.log(CURRENT_FORM)
         dialog.close()
         CURRENT_FORM.reset()
     })
@@ -81,7 +80,6 @@ document.querySelectorAll("dialog").forEach((dialog) => {
                 console.log(`${key} | ${value}`)
             }
     
-            console.log(DIALOG_ID)
             Dialogs[DIALOG_ID](FORM_DATA);
 
             dialog.close();
@@ -95,5 +93,29 @@ document.querySelectorAll("dialog").forEach((dialog) => {
     });
 
 })
+
+// Starter Todos
+
+const newItem1 = new FormData()
+newItem1.append("title", "Do chores");
+newItem1.append("info", "Around the House");
+newItem1.append("priority", "medium");
+newItem1.append("date", "2025-1-1");
+
+const newItem2 = new FormData()
+newItem2.append("title", "Study for Exam");
+newItem2.append("info", "Math Test");
+newItem2.append("priority", "high");
+newItem2.append("date", "2025-1-2");
+
+const newItem3 = new FormData()
+newItem3.append("title", "Workout");
+newItem3.append("info", "Leg Day: Squats, Lunges, Deadlift");
+newItem3.append("priority", "low");
+newItem3.append("date", "2025-1-1");
+
+todoManager.addTodo(newItem1,projectManager.getSelectedProject())
+todoManager.addTodo(newItem2,projectManager.getSelectedProject())
+todoManager.addTodo(newItem3,projectManager.getSelectedProject())
 
 
