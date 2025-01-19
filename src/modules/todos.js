@@ -7,6 +7,8 @@ const renderManager = RenderManager();
 
 const TodoManager = () => {
 
+    let editedTodo;
+
     const addTodo = (formData,selectedProject) => {
 
         // let selectedProject = projectManager.getSelectedProject();
@@ -23,13 +25,28 @@ const TodoManager = () => {
 
     }
 
-    const editTodo = (name, info, date, priority) => {
+    const editTodo = (formData,selectedProject) => {
 
+        console.log(editedTodo)
+
+        editedTodo.projectName = selectedProject.projectName,
+        editedTodo.todoName = formData.get("title")
+        editedTodo.todoInfo = formData.get("info");
+        editedTodo.todoPriority = formData.get("priority");
+        editedTodo.todoDate = formData.get("date");
+
+        renderManager.renderPage(selectedProject);
+
+    }
+
+    const setEditedTodo = (todo) => {
+        editedTodo = todo;
     }
 
     return {
         editTodo,
-        addTodo
+        addTodo,
+        setEditedTodo
     }
 
 };

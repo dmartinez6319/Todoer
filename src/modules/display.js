@@ -1,5 +1,5 @@
 // Responsible for handling and creating DOM elements
-import {initializeDeleteButton, initializeProjectSelection} from "../index";
+import {initializeDeleteButton, initializeProjectSelection, initializeEditTask} from "../index";
 import PriorityManager from "./priority";
 
 const priorityManager = PriorityManager();
@@ -31,6 +31,8 @@ const RenderManager = () => {
             const TASK_PRIORITY_HOLDER = TODO_CARD.querySelector("#task-title"); // append an id of med-low
             const TASK_DATE = TODO_CARD.querySelector("#task-date");
 
+            const TASK_STATUS = TODO_CARD.querySelector("#task-status")
+
             TASK_NAME.innerHTML = todo.todoName;
             if (todo.todoInfo) {
                 TASK_INFO.innerHTML = todo.todoInfo;
@@ -45,6 +47,17 @@ const RenderManager = () => {
 
             const TASK_REMOVE = TODO_CARD.querySelector("#remove-task")
 
+            TASK_STATUS.addEventListener("click", (event) => {
+                event.stopPropagation();
+                let TASK_STATUS_CHECK = TASK_STATUS.checked;
+
+                if (TASK_STATUS_CHECK) {
+                    TASK_NAME.classList.add("task-done")
+                } else {
+                    TASK_NAME.classList.remove("task-done")
+                }
+            })
+
             TASK_REMOVE.addEventListener("click",(event)=>{
                 event.stopPropagation();
 
@@ -55,6 +68,8 @@ const RenderManager = () => {
                 
                 renderPage(selectedProject)
             })
+
+            initializeEditTask(TODO_CARD,todo);
 
             TODO_HOLDER.appendChild(TODO_CARD);
 

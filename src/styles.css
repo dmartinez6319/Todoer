@@ -220,3 +220,11 @@ dialog::backdrop{
     padding: 0.5rem 1rem;
     border-radius: 6px;
 }
+
+.task-done{
+    text-decoration: line-through;
+}
+
+.task-not-done {
+
+}

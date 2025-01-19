@@ -14,6 +14,7 @@ const ADD_PROJECT = document.querySelector("#add-project")
 
 const DIALOG_PROJECT = document.querySelector("#dialog-project-add")
 const DIALOG_TASK = document.querySelector("#dialog-task-add")
+const DIALOG_EDIT = document.querySelector("#dialog-task-edit")
 
 ADD_TASK.addEventListener("click",() => {
     let selectedProject = projectManager.getSelectedProject();
@@ -28,6 +29,18 @@ ADD_PROJECT.addEventListener("click",() => {
 });
 
 
+export const initializeEditTask = (TODO_CARD,todo) => {
+    TODO_CARD.addEventListener("click", (event) => {
+        DIALOG_EDIT.querySelector("#edit-title").value = todo.todoName
+        DIALOG_EDIT.querySelector("#edit-info").value = todo.todoInfo
+        DIALOG_EDIT.querySelector("#edit-select").value = todo.todoPriority
+        DIALOG_EDIT.querySelector("#edit-cal").value = todo.todoDate
+        todoManager.setEditedTodo(todo);
+        DIALOG_EDIT.showModal();
+    })
+}
+
+
 renderManager.updateProjects(projectManager.getProjectList());
 renderManager.renderPage(projectManager.getSelectedProject());
 
@@ -39,13 +52,14 @@ export const initializeProjectSelection = (project) => {
     projectManager.setSelectedProject(project);
 }
 
+
 // Initialize Modals
 
 // Reference each Modal through each Dialog, intended purpose (1 parent up) is their dialog id "dialog-[project/task]-[add/edit]"
 
 const Dialogs = {
-    "dialog-task-edit": (formData) => {
-        todoManager.editTodo(formData);
+    "dialog-task-edit": (formData,editTodo) => {
+        todoManager.editTodo(formData,projectManager.getSelectedProject());
     },
     "dialog-task-add": (formData) => {
         todoManager.addTodo(formData,projectManager.getSelectedProject())
@@ -73,8 +87,6 @@ document.querySelectorAll("dialog").forEach((dialog) => {
 
         if (CURRENT_FORM.checkValidity()){
             const FORM_DATA = new FormData(CURRENT_FORM)
-
-
 
             for (let [key,value] of FORM_DATA.entries()){
                 console.log(`${key} | ${value}`)
